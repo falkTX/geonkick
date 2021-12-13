@@ -187,7 +187,7 @@ class GeonkickLv2Plugin : public RkObject
                 auto it = lv2_atom_sequence_begin(&midiIn->body);
                 while (!lv2_atom_sequence_is_end(&midiIn->body, midiIn->atom.size, it)) {
                         size_t eventFrame = it->time.frames;
-                        size_t size = eventFrame - currentFrame;
+                        int size = eventFrame - currentFrame;
 
                         if (size > 0) {
                                 geonkickApi->process(outputChannels.data(), offset, size);
