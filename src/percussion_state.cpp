@@ -849,8 +849,8 @@ std::string PercussionState::toJson() const
 {
         std::ostringstream jsonStream;
         jsonStream << "{" << std::endl;
-        oscJson(jsonStream);
         kickJson(jsonStream);
+        oscJson(jsonStream);
         jsonStream << "}" << std::endl;
         return jsonStream.str();
 }
@@ -878,6 +878,7 @@ void PercussionState::envelopeToJson(std::ostringstream &jsonStream,
 void PercussionState::oscJson(std::ostringstream &jsonStream) const
 {
         for (const auto& val: oscillators) {
+                jsonStream << "," << std::endl;
                 jsonStream << "\"osc" << val.first << "\": {" << std::endl;
                 jsonStream << "\"enabled\": " << (val.second->isEnabled ? "true" : "false") << ", " << std::endl;
                 jsonStream << "\"is_fm\": " << (val.second->isFm ? "true" : "false") << ", " << std::endl;
@@ -923,7 +924,6 @@ void PercussionState::oscJson(std::ostringstream &jsonStream) const
                            << val.second->filterFactor << std::endl;
                 jsonStream << "}" << std::endl;  // filter;
                 jsonStream << "}" << std::endl;  // osc;
-                jsonStream << "," << std::endl;
         }
 }
 
