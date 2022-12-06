@@ -351,7 +351,7 @@ void OscillatorGroupBox::createEvelopeGroupBox()
                 frequencyKnob->setPosition(224 / 2 + (224 / 2 - 80) / 2, (125 - 80) / 2 - 1);
                 frequencyKnob->setKnobBackgroundImage(RkImage(80, 80, RK_IMAGE_RC(knob_bk_image)));
                 frequencyKnob->setKnobImage(RkImage(70, 70, RK_IMAGE_RC(knob)));
-                frequencyKnob->setRange(200, 16000);
+                frequencyKnob->setRange(20, 16000);
                 RK_ACT_BIND(frequencyKnob,
                             valueUpdated,
                             RK_ACT_ARGS(double val),
