@@ -60,7 +60,7 @@ class OscillatorGroupBox: public GeonkickGroupBox
         void setSampleFunction(bool pressed);
         void groupBoxLabelUpdated(bool state);
         void browseSample();
-        void updateAmpltudeEnvelopeBox();
+        void updateAmplitudeEnvelopeBox();
 
  private:
         Oscillator *oscillator;

@@ -447,7 +447,7 @@ void OscillatorGroupBox::setSineWave(bool pressed)
                 sawtoothButton->setPressed(false);
                 sampleButton->setPressed(false);
                 oscillator->setFunction(Oscillator::FunctionType::Sine);
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 }
 
@@ -459,7 +459,7 @@ void OscillatorGroupBox::setSquareWave(bool pressed)
                 sawtoothButton->setPressed(false);
                 sampleButton->setPressed(false);
                 oscillator->setFunction(Oscillator::FunctionType::Square);
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 }
 
@@ -471,7 +471,7 @@ void OscillatorGroupBox::setTriangleWave(bool pressed)
                 sawtoothButton->setPressed(false);
                 sampleButton->setPressed(false);
                 oscillator->setFunction(Oscillator::FunctionType::Triangle);
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 }
 
@@ -483,7 +483,7 @@ void OscillatorGroupBox::setSawtoothWave(bool pressed)
                 triangleButton->setPressed(false);
                 sampleButton->setPressed(false);
                 oscillator->setFunction(Oscillator::FunctionType::Sawtooth);
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 }
 
@@ -495,7 +495,7 @@ void OscillatorGroupBox::setSampleFunction(bool pressed)
                 triangleButton->setPressed(false);
                 sawtoothButton->setPressed(false);
                 oscillator->setFunction(Oscillator::FunctionType::Sample);
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 }
 
@@ -550,7 +550,7 @@ void OscillatorGroupBox::updateGui()
                 sawtoothButton->setPressed(oscillator->function() == Oscillator::FunctionType::Sawtooth);
                 sampleButton->setPressed(oscillator->function() == Oscillator::FunctionType::Sample);
                 phaseSlider->onSetValue(oscillator->getPhase());
-                updateAmpltudeEnvelopeBox();
+                updateAmplitudeEnvelopeBox();
         }
 
         amplitudeKnob->setCurrentValue(oscillator->amplitude());
@@ -574,7 +574,7 @@ void OscillatorGroupBox::browseSample()
         viewState()->setMainView(ViewState::View::Samples);
 }
 
-void OscillatorGroupBox::updateAmpltudeEnvelopeBox()
+void OscillatorGroupBox::updateAmplitudeEnvelopeBox()
 {
         pitchShiftKnob->show(oscillator->function() == Oscillator::FunctionType::Sample);
         pitchEnvelopeButton->show(oscillator->function() == Oscillator::FunctionType::Sample);
