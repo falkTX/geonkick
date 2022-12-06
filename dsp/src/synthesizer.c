@@ -74,11 +74,11 @@ gkick_synth_new(struct gkick_synth **synth, int sample_rate)
                 gkick_log_error("can't create envelope");
                 gkick_synth_free(synth);
                 return GEONKICK_ERROR;
-        } else {
-                /* Add two default points. */
-                gkick_envelope_add_point((*synth)->envelope, 0.0f, 1.0f);
-                gkick_envelope_add_point((*synth)->envelope, 1.0f, 1.0f);
         }
+
+        /* Add two default points. */
+        gkick_envelope_add_point((*synth)->envelope, 0.0f, 1.0f);
+        gkick_envelope_add_point((*synth)->envelope, 1.0f, 1.0f);
 
         /* Create synthesizer kick buffer. */
         struct gkick_buffer *buff;
