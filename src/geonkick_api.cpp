@@ -180,7 +180,7 @@ std::shared_ptr<PercussionState> GeonkickApi::getDefaultPercussionState()
                         }
 
                         state->setOscillatorAmplitue(index, 0.26);
-                        state->setOscillatorFrequency(index, 800);
+                        state->setOscillatorFrequency(index, 440);
                         state->setOscillatorPitchShift(index, 0);
                         state->setOscillatorFilterEnabled(index, false);
                         state->setOscillatorFilterType(index, GeonkickApi::FilterType::LowPass);
