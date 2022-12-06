@@ -54,7 +54,7 @@ gkick_filter_new(struct gkick_filter **filter, int sample_rate)
                 gkick_log_error("error on init mutex");
                 gkick_filter_free(filter);
                 return GEONKICK_ERROR;
-	}
+        }
 
         (*filter)->cutoff_freq = GEONKICK_DEFAULT_FILTER_CUTOFF_FREQ;
         (*filter)->factor      = GEONKICK_DEFAULT_FILTER_FACTOR;

@@ -34,12 +34,12 @@
 #include <pthread.h>
 
 struct gkick_synth {
-	int sample_rate;
-      	atomic_size_t id;
+        int sample_rate;
+        atomic_size_t id;
         char name[30];
 
-	/* Speciafies if the synthesizer is active. */
-	atomic_bool is_active;
+        /* Speciafies if the synthesizer is active. */
+        atomic_bool is_active;
 
         gkick_real current_time;
         struct gkick_oscillator **oscillators;
@@ -113,21 +113,21 @@ gkick_synth_create_oscillators(struct gkick_synth *synth);
 
 enum geonkick_error
 gkick_synth_get_oscillators_number(struct gkick_synth *synth,
-				   size_t *number);
+                                   size_t *number);
 
 struct gkick_oscillator*
 gkick_synth_get_oscillator(struct gkick_synth *synth,
-			   size_t index);
+                           size_t index);
 
 enum geonkick_error
 gkick_synth_enable_oscillator(struct gkick_synth *synth,
-			      size_t index,
-			      int enable);
+                              size_t index,
+                              int enable);
 
 enum geonkick_error
 gkick_synth_osc_is_enabled(struct gkick_synth *synth,
-			   size_t index,
-			   int *enabled);
+                           size_t index,
+                           int *enabled);
 
 struct gkick_envelope*
 gkick_synth_osc_get_env(struct gkick_synth *synth,
@@ -137,12 +137,12 @@ gkick_synth_osc_get_env(struct gkick_synth *synth,
 enum geonkick_error
 gkick_synth_osc_set_fm(struct gkick_synth *synth,
                        size_t index,
-		       bool is_fm);
+                       bool is_fm);
 
 enum geonkick_error
 gkick_synth_osc_is_fm(struct gkick_synth *synth,
                       size_t index,
-		      bool *is_fm);
+                      bool *is_fm);
 
 enum geonkick_error
 gkick_synth_osc_envelope_points(struct gkick_synth *synth,
@@ -211,51 +211,51 @@ gkick_synth_get_osc_seed(struct gkick_synth *synth,
 
 enum geonkick_error
 gkick_synth_get_length(struct gkick_synth *synth,
-		       gkick_real *len);
+                       gkick_real *len);
 
 enum geonkick_error
 gkick_synth_set_length(struct gkick_synth *synth,
-		       gkick_real len);
+                       gkick_real len);
 
 enum geonkick_error
 gkick_synth_kick_set_amplitude(struct gkick_synth *synth,
-			       gkick_real amplitude);
+                               gkick_real amplitude);
 
 enum geonkick_error
 gkick_synth_kick_get_amplitude(struct gkick_synth *synth,
-			       gkick_real *amplitude);
+                               gkick_real *amplitude);
 
 enum geonkick_error
 geonkick_synth_kick_filter_enable(struct gkick_synth *synth,
-				  int enable);
+                                  int enable);
 
 enum geonkick_error
 geonkick_synth_kick_filter_is_enabled(struct gkick_synth *synth,
-				      int *enabled);
+                                      int *enabled);
 
 enum geonkick_error
 gkick_synth_kick_set_filter_frequency(struct gkick_synth *synth,
-				      gkick_real frequency);
+                                      gkick_real frequency);
 
 enum geonkick_error
 gkick_synth_kick_get_filter_frequency(struct gkick_synth *synth,
-				      gkick_real *frequency);
+                                      gkick_real *frequency);
 
 enum geonkick_error
 gkick_synth_kick_set_filter_factor(struct gkick_synth *synth,
-				   gkick_real factor);
+                                   gkick_real factor);
 
 enum geonkick_error
 gkick_synth_kick_get_filter_factor(struct gkick_synth *synth,
-				   gkick_real *factor);
+                                   gkick_real *factor);
 
 enum geonkick_error
 gkick_synth_set_kick_filter_type(struct gkick_synth *synth,
-				 enum gkick_filter_type type);
+                                 enum gkick_filter_type type);
 
 enum geonkick_error
 gkick_synth_get_kick_filter_type(struct gkick_synth *synth,
-				 enum gkick_filter_type *type);
+                                 enum gkick_filter_type *type);
 
 enum geonkick_error
 gkick_synth_kick_envelope_get_points(struct gkick_synth *synth,
@@ -384,67 +384,67 @@ gkick_synth_osc_is_enabled_filter(struct gkick_synth *synth,
 
 enum geonkick_error
 gkick_synth_compressor_enable(struct gkick_synth *synth,
-			      int enable);
+                              int enable);
 
 enum geonkick_error
 gkick_synth_compressor_is_enabled(struct gkick_synth *synth,
-				  int *enabled);
+                                  int *enabled);
 
 enum geonkick_error
 gkick_synth_compressor_set_attack(struct gkick_synth *synth,
-				  gkick_real attack);
+                                  gkick_real attack);
 
 enum geonkick_error
 gkick_synth_compressor_get_attack(struct gkick_synth *synth,
-				  gkick_real *attack);
+                                  gkick_real *attack);
 
 enum geonkick_error
 gkick_synth_compressor_set_release(struct gkick_synth *synth,
-				   gkick_real release);
+                                   gkick_real release);
 
 enum geonkick_error
 gkick_synth_compressor_get_release(struct gkick_synth *synth,
-				   gkick_real *release);
+                                   gkick_real *release);
 
 enum geonkick_error
 gkick_synth_compressor_set_threshold(struct gkick_synth *synth,
-				     gkick_real threshold);
+                                     gkick_real threshold);
 
 enum geonkick_error
 gkick_synth_compressor_get_threshold(struct gkick_synth *synth,
-				     gkick_real *threshold);
+                                     gkick_real *threshold);
 
 enum geonkick_error
 gkick_synth_compressor_set_ratio(struct gkick_synth *synth,
-				 gkick_real ratio);
+                                 gkick_real ratio);
 
 enum geonkick_error
 gkick_synth_compressor_get_ratio(struct gkick_synth *synth,
-				 gkick_real *ratio);
+                                 gkick_real *ratio);
 
 enum geonkick_error
 gkick_synth_compressor_set_knee(struct gkick_synth *synth,
-				gkick_real knee);
+                                gkick_real knee);
 
 enum geonkick_error
 gkick_synth_compressor_get_knee(struct gkick_synth *synth,
-				gkick_real *knee);
+                                gkick_real *knee);
 
 enum geonkick_error
 gkick_synth_compressor_set_makeup(struct gkick_synth *synth,
-				  gkick_real makeup);
+                                  gkick_real makeup);
 
 enum geonkick_error
 gkick_synth_compressor_get_makeup(struct gkick_synth *synth,
-				  gkick_real *makeup);
+                                  gkick_real *makeup);
 
 enum geonkick_error
 gkick_synth_distortion_enable(struct gkick_synth *synth,
-			      int enable);
+                              int enable);
 
 enum geonkick_error
 gkick_synth_distortion_is_enabled(struct gkick_synth *synth,
-				  int *enabled);
+                                  int *enabled);
 
 enum geonkick_error
 gkick_synth_distortion_get_in_limiter(struct gkick_synth *synth,
@@ -459,35 +459,35 @@ gkick_synth_distortion_set_volume(struct gkick_synth *synth, gkick_real volume);
 
 enum geonkick_error
 gkick_synth_distortion_get_volume(struct gkick_synth *synth,
-				  gkick_real *volume);
+                                  gkick_real *volume);
 
 enum geonkick_error
 gkick_synth_distortion_set_drive(struct gkick_synth *synth,
-				 gkick_real drive);
+                                 gkick_real drive);
 
 enum geonkick_error
 gkick_synth_distortion_get_drive(struct gkick_synth *synth,
-				 gkick_real *drive);
+                                 gkick_real *drive);
 
 enum geonkick_error
 gkick_synth_enable_group(struct gkick_synth *synth,
-			 size_t index,
-			 bool enable);
+                         size_t index,
+                         bool enable);
 
 enum geonkick_error
 gkick_synth_group_enabled(struct gkick_synth *synth,
-			  size_t index,
-			  bool *enabled);
+                          size_t index,
+                          bool *enabled);
 
 enum geonkick_error
 geonkick_synth_group_set_amplitude(struct gkick_synth *synth,
-				   size_t index,
-				   gkick_real amplitude);
+                                   size_t index,
+                                   gkick_real amplitude);
 
 enum geonkick_error
 geonkick_synth_group_get_amplitude(struct gkick_synth *synth,
-				   size_t index,
-				   gkick_real *amplitude);
+                                   size_t index,
+                                   gkick_real *amplitude);
 
 enum geonkick_error
 geonkick_synth_set_osc_sample(struct gkick_synth *synth,
