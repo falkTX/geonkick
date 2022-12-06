@@ -46,16 +46,16 @@ geonkick_worker_create()
                 return GEONKICK_OK;
 
         geonkick_worker = (struct gkick_worker*)calloc(1, sizeof(struct gkick_worker));
-	if (geonkick_worker == NULL)
-		return GEONKICK_ERROR_MEM_ALLOC;
+        if (geonkick_worker == NULL)
+                return GEONKICK_ERROR_MEM_ALLOC;
 
-	geonkick_worker->running = false;
+        geonkick_worker->running = false;
         if (pthread_cond_init(&geonkick_worker->condition_var, NULL) != 0) {
                 gkick_log_error("can't init worker condition variable");
-		return GEONKICK_ERROR;
-	}
-	geonkick_worker->cond_var_initilized = true;
-	return GEONKICK_OK;
+                return GEONKICK_ERROR;
+        }
+        geonkick_worker->cond_var_initilized = true;
+        return GEONKICK_OK;
 }
 
 enum geonkick_error
@@ -77,19 +77,19 @@ geonkick_worker_start()
 
 void geonkick_worker_destroy()
 {
-	if (geonkick_worker->running)
-		geonkick_worker->running = false;
+        if (geonkick_worker->running)
+                geonkick_worker->running = false;
         pthread_mutex_lock(&geonkick_worker->lock);
         pthread_cond_signal(&geonkick_worker->condition_var);
         pthread_mutex_unlock(&geonkick_worker->lock);
         gkick_log_debug("join thread: %d", geonkick_worker->running);
-	pthread_join(geonkick_worker->thread, NULL);
+        pthread_join(geonkick_worker->thread, NULL);
 
-	pthread_mutex_lock(&geonkick_worker->lock);
-	if (geonkick_worker->cond_var_initilized)
-		pthread_cond_destroy(&geonkick_worker->condition_var);
-	geonkick_worker->cond_var_initilized = false;
-	pthread_mutex_unlock(&geonkick_worker->lock);
+        pthread_mutex_lock(&geonkick_worker->lock);
+        if (geonkick_worker->cond_var_initilized)
+                pthread_cond_destroy(&geonkick_worker->condition_var);
+        geonkick_worker->cond_var_initilized = false;
+        pthread_mutex_unlock(&geonkick_worker->lock);
         free(geonkick_worker);
         geonkick_worker = NULL;
 }
@@ -121,7 +121,7 @@ void geonkick_worker_remove_instance(struct geonkick *instance)
 void *geonkick_worker_thread(void *arg)
 {
         while (geonkick_worker->running) {
-		/**
+                /**
                  * Ignore too many updates.
                  * The last updates will be processed.
                  */
@@ -140,7 +140,7 @@ void *geonkick_worker_thread(void *arg)
                 pthread_cond_wait(&geonkick_worker->condition_var, &geonkick_worker->lock);
                 pthread_mutex_unlock(&geonkick_worker->lock);
                 gkick_log_debug("next");
-	}
+        }
         gkick_log_debug("exit");
         return NULL;
 }
